@@ -1,0 +1,18 @@
+<resources>
+
+    <!--activity_main.xml-->
+    <string name="app_name">Basico</string>
+    <string name="main_button_toast">Exibir Toast</string>
+    <string name="toast_hint">Messagem para Toast</string>
+    <string name="basic_text">Messagem texto</string>
+    <string name="main_button_tela2">Tela 2</string>
+    <string name="main_button_parcelable">Parcelable</string>
+    <string name="main_button_serialize">Serialize</string>
+    <string name="main_button_parcel">Parcel</string>
+
+    <!--Tela2Activity.kt-->
+    <string name="tela2_texto1">Nome: %1$s / Código: %2$d</string>
+    <string name="tela2_texto2">Nome: %1$s / Idade: %2$d</string>
+    <string name="tela2_texto3">Nome: %1$s / RG: %2$d</string>
+
+</resources>

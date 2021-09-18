@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Counter</string>
+    <string name="time_1">Time 1</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
+    <string name="points">10</string>
+    <string name="time_2">Time 2</string>
+</resources>

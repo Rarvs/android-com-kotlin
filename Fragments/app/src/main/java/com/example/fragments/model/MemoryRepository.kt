@@ -1,0 +1,45 @@
+package com.example.fragments.model
+
+object MemoryRepository : HotelRepository {
+    private var nextId = 1L
+    private val hotelsList = mutableListOf<Hotel>()
+
+    init {
+        save(Hotel(0, "New Beach Hotel", "Av Boa Viagem", 4.5F))
+        save(Hotel(0, "Recife Hotel", "Av Boa Viagem", 4.0F))
+        save(Hotel(0, "Canario Hotel", "Rua dos Navegantes", 3.0F))
+    }
+
+    override fun save(hotel: Hotel) {
+        if (hotel.id == 0L) {
+            hotel.id = nextId++
+            hotelsList.add(hotel)
+        } else {
+            val index = hotelsList.indexOfFirst { it.id == hotel.id }
+            if (index > -1) {
+                hotelsList[index] = hotel
+            } else {
+                hotelsList.add(hotel)
+            }
+        }
+    }
+
+    override fun remove(vararg hotels: Hotel) {
+        hotelsList.removeAll(hotels)
+    }
+
+    override fun hotelById(id: Long, callback: (Hotel?) -> Unit) {
+        callback(hotelsList.find { it.id == id })
+    }
+
+
+    override fun search(term: String, callback: (List<Hotel>) -> Unit) {
+        callback(
+            if (term.isEmpty()) {
+                hotelsList
+            } else hotelsList.filter {
+                it.name.toUpperCase().contains(term.toUpperCase())
+            }
+        )
+    }
+}
